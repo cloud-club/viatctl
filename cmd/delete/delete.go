@@ -1,12 +1,12 @@
 /*
 Copyright © 2023 NAME HERE <EMAIL ADDRESS>
-
 */
-package cmd
+package delete
 
 import (
 	"fmt"
 
+	"github.com/cloud-club/viatctl/cmd"
 	"github.com/spf13/cobra"
 )
 
@@ -26,6 +26,7 @@ to quickly create a Cobra application.`,
 }
 
 func init() {
+	rootCmd := cmd.GetRootCmd()
 	rootCmd.AddCommand(deleteCmd)
 
 	// Here you will define your flags and configuration settings.
