@@ -1,6 +1,5 @@
 /*
 Copyright © 2023 NAME HERE <EMAIL ADDRESS>
-
 */
 package cmd
 
@@ -10,18 +9,47 @@ import (
 	"github.com/spf13/cobra"
 )
 
-
-
 // rootCmd represents the base command when called without any subcommands
-var rootCmd = &cobra.Command{
+var RootCmd = &cobra.Command{
 	Use:   "viatctl",
-	Short: "A brief description of your application",
-	Long: `A longer description that spans multiple lines and likely contains
-examples and usage of using your application. For example:
+	Short: "CLI for Aviator",
+	Long: `CLI for Aviator.
 
-Cobra is a CLI library for Go that empowers applications.
-This application is a tool to generate the needed files
-to quickly create a Cobra application.`,
+Aviator is a tool for OS provisioning using custom resource definitions (CRDs) and operators for vanilla k8s deployed in Naver Cloud Platform.
+
+Examples:	
+  # Create new node(VM)
+  viatctl create node --vpc vpcNo --subnet subnetNo --imageproduct imageProductCode --product productCode
+
+  # Stop node
+  viatctl stop node --server serverNo
+
+  # Get nodes
+  viatctl get nodes
+
+  # Update node
+  viatctl update node --server serverNo --product productCode
+
+  # Delete node
+  viatctl delete node --server serverNo
+
+  # Get image product list
+  viatctl get imageproducts
+
+  # Get product list
+  viatctl get products
+
+  # Get vpc list
+  viatctl get vpcs
+
+  # Get subnet list
+  viatctl get subnets
+
+  # Get accesscontrolgroup list
+  viatctl get accesscontrolgroups
+
+  # Get networkinterface list
+  viatctl get networkinterfaces`,
 	// Uncomment the following line if your bare application
 	// has an action associated with it:
 	// Run: func(cmd *cobra.Command, args []string) { },
@@ -30,10 +58,14 @@ to quickly create a Cobra application.`,
 // Execute adds all child commands to the root command and sets flags appropriately.
 // This is called by main.main(). It only needs to happen once to the rootCmd.
 func Execute() {
-	err := rootCmd.Execute()
+	err := RootCmd.Execute()
 	if err != nil {
 		os.Exit(1)
 	}
+}
+
+func GetRootCmd() *cobra.Command {
+	return RootCmd
 }
 
 func init() {
@@ -45,7 +77,5 @@ func init() {
 
 	// Cobra also supports local flags, which will only run
 	// when this action is called directly.
-	rootCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
+	RootCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
 }
-
-
