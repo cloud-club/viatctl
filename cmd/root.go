@@ -17,7 +17,10 @@ var RootCmd = &cobra.Command{
 
 Aviator is a tool for OS provisioning using custom resource definitions (CRDs) and operators for vanilla k8s deployed in Naver Cloud Platform.
 
-Examples:	
+Examples:
+  # Define API key and Secret key for NCP
+  viatctl auth --apikey APIKEY --secretkey SECRETKEY
+
   # Create new node(VM)
   viatctl create node --vpc vpcNo --subnet subnetNo --imageproduct imageProductCode --product productCode
 
