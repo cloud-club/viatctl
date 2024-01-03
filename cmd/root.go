@@ -6,8 +6,16 @@ package cmd
 import (
 	"os"
 
+	pkg "github.com/cloud-club/Aviator-service/pkg"
 	"github.com/spf13/cobra"
 )
+
+func InitNcp() *pkg.NcpService {
+	ncp := pkg.NewNcpService("token")
+	ncp.Server = pkg.NewServerService(os.Getenv("API_KEY"), os.Getenv("SECRET_KEY"))
+
+	return ncp
+}
 
 // rootCmd represents the base command when called without any subcommands
 var RootCmd = &cobra.Command{

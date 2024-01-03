@@ -2,6 +2,7 @@ package auth
 
 import (
 	"fmt"
+	"os"
 
 	"github.com/cloud-club/viatctl/cmd"
 	"github.com/spf13/cobra"
@@ -21,9 +22,16 @@ var authCmd = &cobra.Command{
 	Example:
 		viatctl auth --apikey APIKEY --secretkey SECRETKEY`,
 	Run: func(cmd *cobra.Command, args []string) {
+		apikey, _ := cmd.Flags().GetString("apikey")
+		secretkey, _ := cmd.Flags().GetString("secretkey")
+
 		fmt.Println("Authentication Called with")
-		fmt.Println("API Key: ", cmd.Flag("apikey").Value)
-		fmt.Println("Secret Key: ", cmd.Flag("secretkey").Value)
+		fmt.Println("API Key: ", apikey)
+		fmt.Println("Secret Key: ", secretkey)
+
+		// Save auth info to environment variable
+		os.Setenv("API_KEY", apikey)
+		os.Setenv("SECRET_KEY", secretkey)
 
 		// TODO: Implement authentication logic
 		// 1. Initate service client with api & secret key
