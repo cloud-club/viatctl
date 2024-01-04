@@ -19,9 +19,9 @@ var niCmd = &cobra.Command{
 	Short:   "Get network interface list",
 	Long: `Get network interface list.
 	
-	Example:
-		viatctl get networkinterfaces
-		viatctl get ni
+Example:
+	viatctl get networkinterfaces
+	viatctl get ni
 	`,
 	Run: func(cmd *cobra.Command, args []string) {
 		ncp := root.InitNcp()

@@ -16,7 +16,7 @@ var deleteCmd = &cobra.Command{
 	Short: "Delete instance, services and etc.",
 	Long: `Delete instance, services and etc.
 	
-	Get detail help in each subcommand
+Get detail help in each subcommand
 	`,
 	Run: func(cmd *cobra.Command, args []string) {
 		fmt.Println("Delete called. No subcommands specified.")

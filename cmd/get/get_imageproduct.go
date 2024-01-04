@@ -19,9 +19,9 @@ var ipcCmd = &cobra.Command{
 	Short:   "Get image product code list",
 	Long: `Get image product code list.
 	
-	Example:
-		viatctl get image-productcodes
-		viatctl get ipc
+Example:
+	viatctl get image-productcodes
+	viatctl get ipc
 	`,
 	Run: func(cmd *cobra.Command, args []string) {
 		ncp := root.InitNcp()

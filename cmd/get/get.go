@@ -16,21 +16,21 @@ var getCmd = &cobra.Command{
 	Short: "Get instance, services and etc.",
 	Long: `Get instance, services and etc.
 	
-	Example:
-		# To get server image product code list:
-		viatctl get imageproducts
-		
-		# To get vpc list:
-		viatctl get vpcs
-		
-		# To get subnet list:
-		viatctl get subnets
-		
-		# To get access control group list:
-		viatctl get accesscontrolgroups
-		
-		# To get server product code list:
-		viatctl get products
+Example:
+	# To get server image product code list:
+	viatctl get imageproducts
+	
+	# To get vpc list:
+	viatctl get vpcs
+	
+	# To get subnet list:
+	viatctl get subnets
+	
+	# To get access control group list:
+	viatctl get accesscontrolgroups
+	
+	# To get server product code list:
+	viatctl get products
 	`,
 	Run: func(cmd *cobra.Command, args []string) {
 		fmt.Println("Get called. No subcommands specified.")
@@ -38,7 +38,6 @@ var getCmd = &cobra.Command{
 }
 
 func init() {
-	fmt.Println("init get")
 	rootCmd := cmd.GetRootCmd()
 	rootCmd.AddCommand(getCmd)
 }

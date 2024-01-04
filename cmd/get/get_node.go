@@ -20,8 +20,8 @@ var nodeCmd = &cobra.Command{
 	Short:   "Get nodes created",
 	Long: `Get nodes created.
 	
-	Example:
-		viatctl get nodes --region KR
+Example:
+	viatctl get nodes --region KR
 	`,
 	Run: func(cmd *cobra.Command, args []string) {
 		ncp := root.InitNcp()

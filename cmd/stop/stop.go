@@ -16,7 +16,7 @@ var stopCmd = &cobra.Command{
 	Short: "Stop instance, services and etc.",
 	Long: `Stop instance, services and etc.
 	
-	Get detail help in each subcommand
+Get detail help in each subcommand
 	`,
 	Run: func(cmd *cobra.Command, args []string) {
 		fmt.Println("Stop called. No subcommands specified.")

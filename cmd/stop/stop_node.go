@@ -18,12 +18,12 @@ var nodeCmd = &cobra.Command{
 	Use:   "node",
 	Short: "Stop node",
 	Long: `Stop node.
-	
-	Example:
-		viatctl stop node --server serverNo
 
-	Get server lists by running:
-		viatctl get nodes
+Example:
+	viatctl stop node --server serverNo
+
+Get server lists by running:
+	viatctl get nodes
 	`,
 	Run: func(cmd *cobra.Command, args []string) {
 		fmt.Println("Stoping node....")

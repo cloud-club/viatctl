@@ -16,7 +16,7 @@ var createCmd = &cobra.Command{
 	Short: "create instance, services and etc.",
 	Long: `Create instance, services and etc.
 	
-	Get detail help in each subcommand.
+Get detail help in each subcommand.
 	`,
 	Run: func(cmd *cobra.Command, args []string) {
 		fmt.Println("Create called. No subcommands specified.")

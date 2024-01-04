@@ -18,12 +18,12 @@ var nodeCmd = &cobra.Command{
 	Use:   "node",
 	Short: "Delete node for cluster",
 	Long: `Delete node for cluster.
-	
-	Example:
-		viatctl delete node --server serverNo
 
-	Get server lists by running:
-		viatctl get nodes
+Example:
+	viatctl delete node --server serverNo
+
+Get server lists by running:
+	viatctl get nodes
 	`,
 	Run: func(cmd *cobra.Command, args []string) {
 		fmt.Println("Creating node....")

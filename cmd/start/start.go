@@ -16,7 +16,7 @@ var startCmd = &cobra.Command{
 	Short: "Start instance, services and etc.",
 	Long: `Start instance, services and etc.
 	
-	Get detail help in each subcommand
+Get detail help in each subcommand
 	`,
 	Run: func(cmd *cobra.Command, args []string) {
 		fmt.Println("Start called. No subcommands specified.")

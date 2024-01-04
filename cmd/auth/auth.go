@@ -14,13 +14,13 @@ var authCmd = &cobra.Command{
 	Short: "Authentication for viatctl",
 	Long: `Authentication for viatctl to use Aviator-service API.
 
-	Prerequisite: 
-		Create API key and Secret key from NCP console. Look up(https://api.ncloud-docs.com/docs/common-ncpapi)
+Prerequisite: 
+	Create API key and Secret key from NCP console. Look up(https://api.ncloud-docs.com/docs/common-ncpapi)
 
 	You can get API key and Secret key from the console. Please keep the keys safe and do not share them with others.
 	
-	Example:
-		viatctl auth --apikey APIKEY --secretkey SECRETKEY`,
+Example:
+	viatctl auth --apikey APIKEY --secretkey SECRETKEY`,
 	Run: func(cmd *cobra.Command, args []string) {
 		apikey, _ := cmd.Flags().GetString("apikey")
 		secretkey, _ := cmd.Flags().GetString("secretkey")

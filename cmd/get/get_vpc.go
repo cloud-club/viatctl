@@ -19,8 +19,8 @@ var vpcCmd = &cobra.Command{
 	Short:   "Get vpc list",
 	Long: `Get vpc list.
 	
-	Example:
-		viatctl get vpcs
+Example:
+	viatctl get vpcs
 	`,
 	Run: func(cmd *cobra.Command, args []string) {
 		ncp := root.InitNcp()

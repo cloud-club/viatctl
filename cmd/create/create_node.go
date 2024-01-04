@@ -18,20 +18,20 @@ var nodeCmd = &cobra.Command{
 	Use:   "node",
 	Short: "Create node for cluster",
 	Long: `Create node for cluster.
-	
-	Example:
-		viatctl create node --image-productcode SW.VSVR.OS.LNX64.CNTOS.0703.B050 --vpc-no 52833 --subnet-no 120320 --network-interface-order 0 --access-control-group 148207 --productcode SVR.VSVR.HICPU.C002.M004.NET.HDD.B050.G002
 
-	1. To get server image product code list:
-		viatctl get imageproducts
-	2. To get vpc list:
-		viatctl get vpcs
-	3. To get subnet list:
-		viatctl get subnets
-	4. To get access control group list:
-		viatctl get accesscontrolgroups
-	5. To get server product code list:
-		viatctl get products
+Example:
+	viatctl create node --image-productcode SW.VSVR.OS.LNX64.CNTOS.0703.B050 --vpc-no 52833 --subnet-no 120320 --network-interface-order 0 --access-control-group 148207 --productcode SVR.VSVR.HICPU.C002.M004.NET.HDD.B050.G002
+
+1. To get server image product code list:
+	viatctl get imageproducts
+2. To get vpc list:
+	viatctl get vpcs
+3. To get subnet list:
+	viatctl get subnets
+4. To get access control group list:
+	viatctl get accesscontrolgroups
+5. To get server product code list:
+	viatctl get products
 	`,
 	Run: func(cmd *cobra.Command, args []string) {
 		fmt.Println("Creating node....")

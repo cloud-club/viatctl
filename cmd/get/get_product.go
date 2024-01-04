@@ -20,8 +20,8 @@ var productCmd = &cobra.Command{
 	Short:   "Get product code list",
 	Long: `Get product code list.
 	
-	Example:
-		viatctl get products --image-productcode SW.VSVR.OS.LNX64.CNTOS.0703.B050
+Example:
+	viatctl get products --image-productcode SW.VSVR.OS.LNX64.CNTOS.0703.B050
 	`,
 	Run: func(cmd *cobra.Command, args []string) {
 		ncp := root.InitNcp()

@@ -19,8 +19,8 @@ var subnetCmd = &cobra.Command{
 	Short:   "Get subnet list",
 	Long: `Get subnet list.
 	
-	Example:
-		viatctl get subnets
+Example:
+	viatctl get subnets
 	`,
 	Run: func(cmd *cobra.Command, args []string) {
 		ncp := root.InitNcp()

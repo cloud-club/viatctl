@@ -19,14 +19,14 @@ var nodeCmd = &cobra.Command{
 	Short: "Update node",
 	Long: `Update node. Requires server number and server product code that you want to update to. 
 	
-	Example:
-		viatctl update node --server serverNo --productcode SVR.VSVR.STAND.C032.M128.NET.HDD.B050.G002
+Example:
+	viatctl update node --server serverNo --productcode SVR.VSVR.STAND.C032.M128.NET.HDD.B050.G002
 
-	Get server lists by running:
-		viatctl get nodes
-	
-	Get server product code list by running:
-		viatctl get productcodes
+Get server lists by running:
+	viatctl get nodes
+
+Get server product code list by running:
+	viatctl get productcodes
 	`,
 	Run: func(cmd *cobra.Command, args []string) {
 		fmt.Println("Updating node....")

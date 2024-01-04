@@ -18,10 +18,10 @@ var acgCmd = &cobra.Command{
 	Aliases: []string{"accesscontrolgroups", "acg"},
 	Short:   "Get access control group list",
 	Long: `Get access control group list.
-	
-	Example:
-		viatctl get accesscontrolgroups
-		viatctl get acg
+
+Example:
+	viatctl get accesscontrolgroups
+	viatctl get acg
 	`,
 	Run: func(cmd *cobra.Command, args []string) {
 		ncp := root.InitNcp()

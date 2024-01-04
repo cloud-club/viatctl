@@ -16,7 +16,7 @@ var updateCmd = &cobra.Command{
 	Short: "Update node's SKU.",
 	Long: `Update node's SKU.
 	
-	Get detail help in each subcommand
+Get detail help in each subcommand
 	`,
 	Run: func(cmd *cobra.Command, args []string) {
 		fmt.Println("Update called. No subcommands specified.")
