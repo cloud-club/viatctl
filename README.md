@@ -12,7 +12,7 @@ $ git clone https://github.com/cloud-club/viatctl.git
 
 ## 2. Build viatctl
 ```bash
-$ git clone https://github.com/cloud-club/viatctl.git
+$ go build
 ```
 
 # Environment
