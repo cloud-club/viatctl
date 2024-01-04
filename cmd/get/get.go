@@ -13,29 +13,31 @@ import (
 // getCmd represents the get command
 var getCmd = &cobra.Command{
 	Use:   "get",
-	Short: "A brief description of your command",
-	Long: `A longer description that spans multiple lines and likely contains examples
-and usage of using your command. For example:
-
-Cobra is a CLI library for Go that empowers applications.
-This application is a tool to generate the needed files
-to quickly create a Cobra application.`,
+	Short: "Get instance, services and etc.",
+	Long: `Get instance, services and etc.
+	
+Example:
+	# To get server image product code list:
+	viatctl get imageproducts
+	
+	# To get vpc list:
+	viatctl get vpcs
+	
+	# To get subnet list:
+	viatctl get subnets
+	
+	# To get access control group list:
+	viatctl get accesscontrolgroups
+	
+	# To get server product code list:
+	viatctl get products
+	`,
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println("get called")
+		fmt.Println("Get called. No subcommands specified.")
 	},
 }
 
 func init() {
 	rootCmd := cmd.GetRootCmd()
 	rootCmd.AddCommand(getCmd)
-
-	// Here you will define your flags and configuration settings.
-
-	// Cobra supports Persistent Flags which will work for this command
-	// and all subcommands, e.g.:
-	// getCmd.PersistentFlags().String("foo", "", "A help for foo")
-
-	// Cobra supports local flags which will only run when this command
-	// is called directly, e.g.:
-	// getCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
 }

@@ -3,6 +3,8 @@ github.com/NaverCloudPlatform/ncloud-sdk-go-v2 v1.6.8/go.mod h1:jRp8KZ64MUevBWNq
 github.com/antihax/optional v1.0.0/go.mod h1:uupD/76wgC+ih3iEmQUL+0Ugr19nfwCT1kdvxnR2qWY=
 github.com/cloud-club/Aviator-service v0.0.0-20240101062303-75d8936802ef h1:JY+BCA0nTSCt6XxDlfYatz9GHlsK1zgqp8bMb9B0AA8=
 github.com/cloud-club/Aviator-service v0.0.0-20240101062303-75d8936802ef/go.mod h1:PfsYKMy6EuEgb2drsd0aXKNuMK72aCJXk+nS2kSwGbA=
+github.com/cloud-club/Aviator-service v0.0.0-20240104105031-a8e9278c253b h1:qkG2911G2WWMLV7zhVFBVHgrcUVis/ADIlj6G39reNc=
+github.com/cloud-club/Aviator-service v0.0.0-20240104105031-a8e9278c253b/go.mod h1:PfsYKMy6EuEgb2drsd0aXKNuMK72aCJXk+nS2kSwGbA=
 github.com/cpuguy83/go-md2man/v2 v2.0.2/go.mod h1:tgQtvFlXSQOSOSIRvRPT7W67SCa46tRHOmNcaadrF8o=
 github.com/dgrijalva/jwt-go/v4 v4.0.0-preview1 h1:CaO/zOnF8VvUfEbhRatPcwKVWamvbYd8tQGRWacE9kU=
 github.com/dgrijalva/jwt-go/v4 v4.0.0-preview1/go.mod h1:+hnT3ywWDTAFrW5aE+u2Sa/wT555ZqwoCS+pk3p6ry4=
