@@ -20,7 +20,7 @@ var nodeCmd = &cobra.Command{
 	Long: `Create node for cluster.
 	
 	Example:
-		aviator create node --serverimage-productcode SW.VSVR.OS.LNX64.CNTOS.0703.B050 --vpc-no 52833 --subnet-no 120320 --network-interface-order 0 --access-control-group-no 148207 --server-productcode SVR.VSVR.HICPU.C002.M004.NET.HDD.B050.G002
+		viatctl create node --image-productcode SW.VSVR.OS.LNX64.CNTOS.0703.B050 --vpc-no 52833 --subnet-no 120320 --network-interface-order 0 --access-control-group 148207 --productcode SVR.VSVR.HICPU.C002.M004.NET.HDD.B050.G002
 
 	1. To get server image product code list:
 		viatctl get imageproducts
@@ -34,17 +34,17 @@ var nodeCmd = &cobra.Command{
 		viatctl get products
 	`,
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println("create node called")
+		fmt.Println("Creating node....")
 
 		ncp := root.InitNcp()
 
 		// Map command line arguments to request struct
-		serverImageProductCode, _ := cmd.Flags().GetString("serverimage-productcode")
-		vpcNo, _ := cmd.Flags().GetString("vpc-no")
-		subnetNo, _ := cmd.Flags().GetString("subnet-no")
+		serverImageProductCode, _ := cmd.Flags().GetString("image-productcode")
+		vpcNo, _ := cmd.Flags().GetString("vpc")
+		subnetNo, _ := cmd.Flags().GetString("subnet")
 		networkInterfaceOrder, _ := cmd.Flags().GetInt("network-interface-order")
-		accessControlGroupNo, _ := cmd.Flags().GetString("access-control-group-no")
-		serverProductCode, _ := cmd.Flags().GetString("server-productcode")
+		accessControlGroupNo, _ := cmd.Flags().GetString("access-control-group")
+		serverProductCode, _ := cmd.Flags().GetString("productcode")
 
 		csr := &server.CreateServerRequest{
 			ServerImageProductCode:    serverImageProductCode,
@@ -57,19 +57,21 @@ var nodeCmd = &cobra.Command{
 		response, err := ncp.Server.Create(pkg.API_URL+pkg.CREATE_SERVER_INSTANCE_PATH, csr, []int{1, 1})
 		if err != nil {
 			fmt.Println(err)
+			fmt.Println("Failed to create node.")
 		}
 
 		fmt.Println(response)
+		fmt.Println("Node created successfully.")
 	},
 }
 
 func init() {
 	createCmd.AddCommand(nodeCmd)
 
-	nodeCmd.Flags().StringP("serverimage-productcode", "i", "", "Server image product code")
-	nodeCmd.Flags().StringP("vpc-no", "v", "", "VPC number")
-	nodeCmd.Flags().StringP("subnet-no", "s", "", "Subnet number")
+	nodeCmd.Flags().StringP("image-productcode", "i", "", "Server image product code")
+	nodeCmd.Flags().StringP("vpc", "v", "", "VPC number")
+	nodeCmd.Flags().StringP("subnet", "s", "", "Subnet number")
 	nodeCmd.Flags().IntP("network-interface-order", "n", 0, "Network interface order")
-	nodeCmd.Flags().StringP("access-control-group-no", "a", "", "Access control group number")
-	nodeCmd.Flags().StringP("server-productcode", "p", "", "Server product code")
+	nodeCmd.Flags().StringP("access-control-group", "a", "", "Access control group number")
+	nodeCmd.Flags().StringP("productcode", "p", "", "Server product code")
 }

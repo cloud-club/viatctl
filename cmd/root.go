@@ -7,12 +7,14 @@ import (
 	"os"
 
 	pkg "github.com/cloud-club/Aviator-service/pkg"
+	"github.com/cloud-club/Aviator-service/types/auth"
 	"github.com/spf13/cobra"
 )
 
 func InitNcp() *pkg.NcpService {
 	ncp := pkg.NewNcpService("token")
-	ncp.Server = pkg.NewServerService(os.Getenv("API_KEY"), os.Getenv("SECRET_KEY"))
+	ncp.Key = *auth.NewKeyService(os.Getenv("API_KEY"), os.Getenv("SECRET_KEY"))
+	ncp.Server = pkg.NewServerService(&ncp.Key)
 
 	return ncp
 }
@@ -30,16 +32,16 @@ Examples:
   viatctl auth --apikey APIKEY --secretkey SECRETKEY
 
   # Create new node(VM)
-  viatctl create node --vpc vpcNo --subnet subnetNo --imageproduct imageProductCode --product productCode
+  viatctl create node --image-productcode SW.VSVR.OS.LNX64.CNTOS.0703.B050 --vpc-no 52833 --subnet-no 120320 --network-interface-order 0 --access-control-group 148207 --productcode SVR.VSVR.HICPU.C002.M004.NET.HDD.B050.G002
 
   # Stop node
   viatctl stop node --server serverNo
 
   # Get nodes
-  viatctl get nodes
+  viatctl get nodes --region KR
 
   # Update node
-  viatctl update node --server serverNo --product productCode
+  viatctl update node --server serverNo --productcode SVR.VSVR.STAND.C032.M128.NET.HDD.B050.G002
 
   # Delete node
   viatctl delete node --server serverNo
@@ -48,7 +50,7 @@ Examples:
   viatctl get imageproducts
 
   # Get product list
-  viatctl get products
+  viatctl get products --image-productcode SW.VSVR.OS.LNX64.CNTOS.0703.B050
 
   # Get vpc list
   viatctl get vpcs
