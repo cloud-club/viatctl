@@ -4,6 +4,7 @@ Copyright © 2023 NAME HERE <EMAIL ADDRESS>
 package cmd
 
 import (
+	"fmt"
 	"os"
 
 	pkg "github.com/cloud-club/Aviator-service/pkg"
@@ -11,10 +12,37 @@ import (
 	"github.com/spf13/cobra"
 )
 
-func InitNcp() *pkg.NcpService {
+func InitNcp(service string) *pkg.NcpService {
 	ncp := pkg.NewNcpService("token")
+	apiKey := os.Getenv("API_KEY")
+	secretKey := os.Getenv("SECRET_KEY")
+
+	// if API_KEY or SECRET_KEY is not set, return error message and exit
+	if apiKey == "" || secretKey == "" {
+		fmt.Println("Error: API_KEY or SECRET_KEY is not set")
+		os.Exit(1)
+	}
+
 	ncp.Key = *auth.NewKeyService(os.Getenv("API_KEY"), os.Getenv("SECRET_KEY"))
-	ncp.Server = pkg.NewServerService(&ncp.Key)
+
+	// Init services by service name
+
+	switch service {
+	case "server":
+		ncp.Server = pkg.NewServerService(&ncp.Key)
+	case "accesscontrolgroup":
+		ncp.AccessControlGroup = pkg.NewAccessControlGroupService(&ncp.Key)
+	case "networkinterface":
+		ncp.Network = pkg.NewNetworkInterfaceService(&ncp.Key)
+	case "serverimageproduct":
+		ncp.ServerImageProduct = pkg.NewImageProductService(&ncp.Key)
+	case "serverproduct":
+		ncp.ServerProduct = pkg.NewProductService(&ncp.Key)
+	case "vpc":
+		ncp.Vpc = pkg.NewVpcService(&ncp.Key)
+	case "subnet":
+		ncp.Subnet = pkg.NewSubnetService(&ncp.Key)
+	}
 
 	return ncp
 }
