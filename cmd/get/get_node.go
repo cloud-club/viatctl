@@ -24,7 +24,7 @@ Example:
 	viatctl get nodes --region KR
 	`,
 	Run: func(cmd *cobra.Command, args []string) {
-		ncp := root.InitNcp()
+		ncp := root.InitNcp("server")
 
 		// Map command line arguments to request struct
 		region, _ := cmd.Flags().GetString("region")

@@ -20,7 +20,7 @@ var nodeCmd = &cobra.Command{
 	Long: `Create node for cluster.
 
 Example:
-	viatctl create node --image-productcode SW.VSVR.OS.LNX64.CNTOS.0703.B050 --vpc-no 52833 --subnet-no 120320 --network-interface-order 0 --access-control-group 148207 --productcode SVR.VSVR.HICPU.C002.M004.NET.HDD.B050.G002
+	viatctl create node --image-productcode SW.VSVR.OS.LNX64.CNTOS.0703.B050 --vpc 52833 --subnet 120320 --network-interface-order 0 --access-control-group 148207 --productcode SVR.VSVR.HICPU.C002.M004.NET.HDD.B050.G002
 
 1. To get server image product code list:
 	viatctl get imageproducts
@@ -36,7 +36,7 @@ Example:
 	Run: func(cmd *cobra.Command, args []string) {
 		fmt.Println("Creating node....")
 
-		ncp := root.InitNcp()
+		ncp := root.InitNcp("server")
 
 		// Map command line arguments to request struct
 		serverImageProductCode, _ := cmd.Flags().GetString("image-productcode")

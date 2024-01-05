@@ -24,7 +24,7 @@ Example:
 	viatctl get products --image-productcode SW.VSVR.OS.LNX64.CNTOS.0703.B050
 	`,
 	Run: func(cmd *cobra.Command, args []string) {
-		ncp := root.InitNcp()
+		ncp := root.InitNcp("product")
 
 		// Map command line arguments to request struct
 		imageProductCode, _ := cmd.Flags().GetString("image-productcode")

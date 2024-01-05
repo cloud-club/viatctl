@@ -24,7 +24,7 @@ Example:
 	viatctl get ni
 	`,
 	Run: func(cmd *cobra.Command, args []string) {
-		ncp := root.InitNcp()
+		ncp := root.InitNcp("networkinterface")
 
 		response, err := ncp.Network.Get(pkg.API_URL + pkg.GET_NETWORKINTERFACE_LIST_PATH)
 		if err != nil {

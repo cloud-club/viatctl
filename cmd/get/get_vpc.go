@@ -23,9 +23,9 @@ Example:
 	viatctl get vpcs
 	`,
 	Run: func(cmd *cobra.Command, args []string) {
-		ncp := root.InitNcp()
+		ncp := root.InitNcp("vpc")
 
-		response, err := ncp.Vpc.Get(pkg.API_URL + pkg.GET_VPC_LIST)
+		response, err := ncp.Vpc.Get(pkg.VPC_API_URL + pkg.GET_VPC_LIST)
 		if err != nil {
 			fmt.Println(err)
 			fmt.Println("Failed to retrieve vpc list.")

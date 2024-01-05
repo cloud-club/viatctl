@@ -31,7 +31,7 @@ Get server product code list by running:
 	Run: func(cmd *cobra.Command, args []string) {
 		fmt.Println("Updating node....")
 
-		ncp := root.InitNcp()
+		ncp := root.InitNcp("server")
 
 		// Map command line arguments to request struct
 		serverNo, _ := cmd.Flags().GetString("server")

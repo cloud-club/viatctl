@@ -23,9 +23,9 @@ Example:
 	viatctl get subnets
 	`,
 	Run: func(cmd *cobra.Command, args []string) {
-		ncp := root.InitNcp()
+		ncp := root.InitNcp("subnet")
 
-		response, err := ncp.Subnet.Get(pkg.API_URL + pkg.GET_SUBNET_LIST_PATH)
+		response, err := ncp.Subnet.Get(pkg.VPC_API_URL + pkg.GET_SUBNET_LIST_PATH)
 		if err != nil {
 			fmt.Println(err)
 			fmt.Println("Failed to retrieve subnet list.")

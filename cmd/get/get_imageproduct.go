@@ -24,7 +24,7 @@ Example:
 	viatctl get ipc
 	`,
 	Run: func(cmd *cobra.Command, args []string) {
-		ncp := root.InitNcp()
+		ncp := root.InitNcp("serverimageproduct")
 
 		response, err := ncp.ServerImageProduct.Get(pkg.API_URL + pkg.GET_SERVER_IMAGE_PRODUCT_LIST_PATH)
 		if err != nil {

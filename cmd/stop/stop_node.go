@@ -28,7 +28,7 @@ Get server lists by running:
 	Run: func(cmd *cobra.Command, args []string) {
 		fmt.Println("Stoping node....")
 
-		ncp := root.InitNcp()
+		ncp := root.InitNcp("server")
 
 		// Map command line arguments to request struct
 		serverNo, _ := cmd.Flags().GetString("server")
